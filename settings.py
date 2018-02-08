@@ -14,12 +14,12 @@ def prompt_user_os():
     pass
 
 def save_file(ftp_settings):
-    shelf_file = shelve.open('settings.config')
+    shelf_file = shelve.open('settings/settings.config')
     shelf_file['ftp_settings'] = ftp_settings
     shelf_file.close()
 
 def open_settings():
-    shelf_file = shelve.open('settings.config')
+    shelf_file = shelve.open('settings/settings.config')
     ftp_settings = shelf_file['ftp_settings']
     shelf_file.close()
     return (ftp_settings)
@@ -27,5 +27,3 @@ def open_settings():
 if __name__ == '__main__':
     ftp_settings = prompt_user_ftp()
     save_file(ftp_settings)
-    settings = open_settings()
-    print(settings)
