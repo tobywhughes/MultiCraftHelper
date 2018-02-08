@@ -2,6 +2,9 @@
 import getpass
 import shelve
 
+def security_agreement():
+    agreement_text = "This program recieves backups from the MultiCraft servers over an FTP connection."
+
 def prompt_user_ftp():
     """Returns tuple containing username, password, host, and port in that order"""
     username = input('Please Enter FTP Username:')
@@ -11,7 +14,7 @@ def prompt_user_ftp():
     return (username, password, host, port)
 
 def prompt_user_os():
-    pass
+    
 
 def save_file(ftp_settings):
     shelf_file = shelve.open('settings/settings.config')
