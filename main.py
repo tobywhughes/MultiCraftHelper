@@ -25,8 +25,12 @@ def initialize_data():
     except FileNotFoundError as Error:
         print('ERROR: settings.config not found in settings folder. Please run settings.py')
         sys.exit(1)
-    ftp_fs = initialize_ftp(settings[0], settings[1], settings[2], settings[3])
-    os_fs = initialize_os('~/.')
+    if not settings[2]:
+        print('ERROR: User has not read and agreed to risks with using this software. Please run settings.py')
+        sys.exit(1)
+    ftp_settings, os_settings = settings[0], settings[1]
+    ftp_fs = initialize_ftp(ftp_settings[0], ftp_settings[1], ftp_settings[2], ftp_settings[3])
+    os_fs = initialize_os(os_settings)
     return (ftp_fs, os_fs)
 
 
