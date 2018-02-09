@@ -33,8 +33,9 @@ def prompt_user_ftp():
 
     host = input('Please Enter Host Address: ')
     port = int(input('Please Enter Port:'))
+    world_name = input('World Name (leave off .zip): ')
 
-    return (username, password, host, port)
+    return (username, password, host, port, world_name)
 
 def prompt_user_os():
     """Prompts user for desired path for backups and returns path"""
